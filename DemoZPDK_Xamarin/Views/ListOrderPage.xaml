@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoZPDK_Xamarin.Views.ListOrderPage">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logozlp1.png" WidthRequest="60" HeightRequest="60"/>
+            <Label Text="History" VerticalOptions="Center" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create Order" Clicked="CreateOrder_Clicked" IconImageSource="create.png"/>
+    </ContentPage.ToolbarItems>
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadOrdersCommand}"><CollectionView Grid.Row="1" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                        SelectionMode="None" x:Name="OrderCollectionViews" ItemsSource="{Binding Orders}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                                BackgroundColor="LightPink"
+                                                Invoked="OnDelete"
+                                                />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid BackgroundColor="White"
+                                    Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="1"
+                                    Grid.RowSpan="3"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Status}"
+                                    FontAttributes="Bold"
+                                    LineBreakMode="NoWrap"
+                                    Padding="5"
+                                    FontSize="11">
+                                        <Label.Triggers>
+                                            <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="PENDING">
+                                                    <Setter Property="TextColor" Value="Black"/>
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource PendingLabelColor}"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label"  Binding="{Binding Status}" Value="SUCCESS">
+                                                    <Setter Property="TextColor" Value="White"/>
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource CompletedLabelColor}"/>
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="Label"  Binding="{Binding Status}" Value="FAILED">
+                                                    <Setter Property="TextColor" Value="Black"/>
+                                                    <Setter Property="BackgroundColor" Value="{StaticResource FailLabelColor}"/>
+                                            </DataTrigger>
+                                        </Label.Triggers>
+                                </Label>
+                                <Label
+                                    Grid.Column="1"
+                                    Text="{Binding AppTransId}"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemTextStyle}"
+                                    FontSize="14" />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Amount, StringFormat='{0:N0} VND'}"
+                                    LineBreakMode="NoWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="13" />
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Text="{Binding Description}"
+                                    FontSize="11" />
+                            </Grid>                    
+                            <SwipeView.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnOrderSelected">
+                                </TapGestureRecognizer>
+                            </SwipeView.GestureRecognizers>  
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+    </RefreshView>
+</ContentPage>

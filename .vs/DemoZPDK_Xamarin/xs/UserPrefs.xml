@@ -1,0 +1,60 @@
+﻿<Properties StartupConfiguration="{3D283E1F-B994-48E4-B613-E780412A8127}|Default">
+  <MonoDevelop.Ide.ItemProperties.DemoZPDK__Xamarin.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.100046EB-B95E-4CA2-96B4-E64524C4AA9A" />
+  <MonoDevelop.Ide.ItemProperties.DemoZPDK__Xamarin.Android AndroidDesignerPreferredTheme="Theme.AppCompat.Light.NoActionBar" PreferredExecutionTarget="Android.Pixel_2_API_30" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DemoZPDK_Xamarin/Views/ListOrderPage.xaml.cs">
+    <Files>
+      <File FileName="DemoZPDK_Xamarin.Android/MainActivity.cs" Line="58" Column="64" />
+      <File FileName="DemoZPDK_Xamarin/Views/OrderDetailPage.xaml.cs" />
+      <File FileName="DemoZPDK_Xamarin/DependencyInjection/CallNativeSdkInterface.cs" />
+      <File FileName="DemoZPDK_Xamarin.Android/CallNativeSdkDroid.cs" />
+      <File FileName="DemoZPDK_Xamarin/ViewModels/OrderDetailViewModel.cs" />
+      <File FileName="ZPDK_iOS/Structs.cs" />
+      <File FileName="DemoZPDK_Xamarin/Services/ZaloPayService.cs" />
+      <File FileName="DemoZPDK_Xamarin/Views/ListOrderPage.xaml.cs" Line="49" Column="1" />
+      <File FileName="DemoZPDK_Xamarin/ViewModels/ListOrderViewModel.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DemoZPDK_Xamarin" expanded="True">
+            <Node name="DemoZPDK_Xamarin" expanded="True">
+              <Node name="DependencyInjection" expanded="True" />
+              <Node name="Helper" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="ListOrderPage.xaml" expanded="True">
+                  <Node name="ListOrderPage.xaml.cs" selected="True" />
+                </Node>
+                <Node name="OrderDetailPage.xaml" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="DemoZPDK_Xamarin.Android" expanded="True" />
+            <Node name="ZaloPaySDK" expanded="True">
+              <Node name="Jars" expanded="True" />
+            </Node>
+            <Node name="ZPDK_iOS" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <DisabledProjects>
+    <String>DemoZPDK_Xamarin.Web/DemoZPDK_Xamarin.Web.csproj</String>
+    <String>ZaloPaySDK_iOS/ZaloPaySDK_iOS.csproj</String>
+    <String>BindingFramework/BindingFramework.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations>
+    <MultiItemSolutionRunConfiguration Id="multiprojId" Name="Multiple Projects">
+      <Items>
+        <StartupItem ItemId="{3D283E1F-B994-48E4-B613-E780412A8127}" ItemName="DemoZPDK_Xamarin.Android" ConfigurationId="Default" />
+        <StartupItem ItemId="{8AD0E729-160F-4E54-B8AF-C51CBCCDFE05}" ItemName="DemoZPDK_Xamarin.iOS" ConfigurationId="Default" />
+      </Items>
+    </MultiItemSolutionRunConfiguration>
+  </MultiItemStartupConfigurations>
+</Properties>

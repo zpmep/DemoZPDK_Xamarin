@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DemoZPDK_Xamarin.Views.CreateOrderPage">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logozlp1.png" WidthRequest="60" HeightRequest="60"/>
+            <Label Text="Create Order" VerticalOptions="Center" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="cancel.png" Order="Primary"/>
+        <ToolbarItem Text="Create Order" IconImageSource="ok.png" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding ="15" >
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1,0,1,1" AbsoluteLayout.LayoutFlags="All"  >
+                <Label Text="Amount" FontSize="Medium" />
+                <Entry Text="{Binding Order.Amount}" Keyboard="Numeric" FontSize="Small" />
+                
+            </StackLayout>
+            <Frame IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  CornerRadius="20">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,-1,-1" />
+                    <Label Text="Loading..." FontSize="Medium" HorizontalTextAlignment="Center" Margin="5" />
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

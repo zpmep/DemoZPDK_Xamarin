@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DemoZPDK_Xamarin.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="OpenSans-Bold.ttf#Open Sans" />
+                <On Platform="UWP" Value="/Assets/OpenSans-Bold.ttf#Open Sans" />
+                <On Platform="iOS" Value="OpenSans-Bold" />
+            </OnPlatform>
+            <!--Global Styles-->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="PendingLabelColor">#FAFAFAFA</Color>
+            <Color x:Key="CompletedLabelColor">#FF43A047</Color>
+            <Color x:Key="FailLabelColor">LightPink</Color>
+            <Color x:Key="accentColor1">#F85A2F</Color>
+            <Color x:Key="accentColor2">#C94A28</Color>
+            <Color x:Key="primaryColor1">#222222</Color>
+            <Color x:Key="primaryColor2">#2E2E2E</Color>
+            <Color x:Key="backgroundColor1">#FFFFFF</Color>
+            <Color x:Key="backgroundColor2">#F0F4F7</Color>
+            <Color x:Key="textColor">#757575</Color>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource backgroundColor2}" />
+                <Setter Property="BarTextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoZPDK_Xamarin.Views.OrderDetailPage" Title="{Binding Title}">
+    
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logozlp1.png" WidthRequest="60" HeightRequest="60"/>
+            <Label Text="Order Detail" VerticalOptions="Center" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <AbsoluteLayout Padding="15" >
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="1,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent" >
+                <Frame CornerRadius="10"  
+                       OutlineColor="Black" 
+                       Padding="10" HasShadow="True">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Status:" FontSize="12" FontAttributes="Bold" Padding="5"/>
+                        <Label
+                            Grid.Column="1"
+                            Grid.RowSpan="3"
+                            VerticalOptions="Start"
+                            HorizontalOptions="End"
+                            Text="{Binding Order.Status}"
+                            LineBreakMode="NoWrap"
+                            FontSize="12"
+                            FontAttributes="Bold"
+                            Padding="5">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Order.Status}" Value="PENDING">
+                                            <Setter Property="TextColor" Value="Black"/>
+                                            <Setter Property="BackgroundColor" Value="{StaticResource PendingLabelColor}"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label"  Binding="{Binding Order.Status}" Value="SUCCESS">
+                                            <Setter Property="TextColor" Value="White"/>
+                                            <Setter Property="BackgroundColor" Value="{StaticResource CompletedLabelColor}"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label"  Binding="{Binding Order.Status}" Value="FAILED">
+                                            <Setter Property="TextColor" Value="Black"/>
+                                            <Setter Property="BackgroundColor" Value="{StaticResource FailLabelColor}"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                
+                <Frame CornerRadius="10"  
+                       OutlineColor="Black" 
+                       Padding="10" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="Amount:" FontSize="12" FontAttributes="Bold"/>
+                            <Label Text="{Binding Order.Amount, StringFormat='{0:N0} VND'}" FontSize="12" />
+                        </StackLayout>
+                </Frame>
+                
+                <Frame CornerRadius="10"  
+                       OutlineColor="Black" 
+                       Padding="10" HasShadow="True">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="ZpTransToken:" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Order.ZpTransToken}" FontSize="12" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="AppTransId:" FontSize="12" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Order.AppTransId}" FontSize="12" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="AppId:" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Order.AppId}" FontSize="12" />
+                                </StackLayout>
+                            </StackLayout>
+                </Frame>
+                
+                <Frame CornerRadius="10"  
+                       OutlineColor="Black" 
+                       Padding="10" HasShadow="True">
+                            <StackLayout>
+                                <StackLayout >
+                                    <Label Text="Description:" FontSize="12" FontAttributes="Bold"  />
+                                    <Label Text="{Binding Order.Description}" FontSize="12" />
+                                </StackLayout>
+                                <StackLayout >
+                                    <Label Text="Mac:" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Order.Mac}" FontSize="12" />
+                                </StackLayout>
+                                <StackLayout >
+                                    <Label Text="OrderUrl:" FontSize="12" FontAttributes="Bold" />
+                                    <Label Text="{Binding Order.OrderUrl}" FontSize="12" />
+                                </StackLayout>
+                            </StackLayout>
+                </Frame>
+                <StackLayout x:Name="PAYBUTTON">
+                    <Button Text="Pay order" BackgroundColor="#1e88e5" TextColor="White" Margin="0,15,0,0" Clicked="Pay_Clicked" ></Button>
+                </StackLayout>
+            </StackLayout>
+            <Frame IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0.5,0.5,0.5,0.2" AbsoluteLayout.LayoutFlags="All" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  CornerRadius="20">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <ActivityIndicator Color="Black" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds=".5,.5,-1,-1" />
+                    <Label Text="Loading..." FontSize="Medium" HorizontalTextAlignment="Center" Margin="5" />
+                </StackLayout>
+            </Frame>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
